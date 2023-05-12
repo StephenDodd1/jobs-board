@@ -49,7 +49,8 @@ const jobs = [
     {id: 39, employer: 'Bookface', role: 'FrontEnd Engineer', description: 'Lorem ipsum dolepso'},
 ]
 app.get('/jobs/:start/:end',(req,res)=>{
-    const selected = jobs.reverse().slice(parseInt(req.params.start),parseInt(req.params.end) + 1)
+    const jobsArr = [...jobs]
+    const selected = jobsArr.reverse().slice(parseInt(req.params.start),parseInt(req.params.end) + 1)
     res.json({listings: selected, numberOfJobs:jobs.length})
 })
 
